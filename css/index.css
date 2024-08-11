@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(14, 53, 21);
+}
+
+.game-board {
+    background-color: rgb(14, 53, 21);
+    background-image: url(../img/cenario.jpg);
+    background-repeat: no-repeat;
+    background-position-y: -150px;
+    background-size: 100%; /* Ajuste a imagem para cobrir o elemento */
+    width: 100%;
+    height: 500px;
+    position: relative; /* "position: relative;" para fazer o "absolute" respeitar e não sair da div */
+    overflow: hidden;   /* "overflow: hidden;" tudo que sair da div some */
+}
+
+.pipe {
+    position: absolute;
+    bottom: -38px;
+    width: 140px;
+    animation:  pipe-animation 5s infinite linear; /*  "animation:  nomeAnimação, duração, loop?, e tipo de Animação;" 
+    para pegar animação que criou e usar */
+}
+
+.player {
+    position: absolute;
+    bottom: -55px;
+    width: 300px;
+}
+
+.jump {
+    animation: player-jump 500ms ease-in-out;
+}
+
+.nuvens{
+    position: absolute;
+    width: 400px;
+    bottom: 150px;
+    animation: mover-nuvens 30s linear infinite;
+}
+
+.arvore {
+    position: absolute;
+    position: absolute;
+    bottom: -10px;
+    width: 200px;
+    animation: mover-arvore 10s linear infinite;
+}
+
+/* Animação */
+
+@keyframes pipe-animation {
+    from {  /* "from" onde começa a animação */
+        right: -500px;
+    }
+
+    to { /* "to" onde termina a animação */
+        right: 100%;
+    }
+}
+
+@keyframes player-jump {
+    0% {  /* "0%" quando tiver no inicio da animação */
+        bottom: -55px;
+    }
+
+    40% { /* "40%" quase no meio da animação */
+        bottom: 180px;
+    }
+
+    50% { /* "50%" quando tiver no meio da animação */
+        bottom: 180px;
+    }
+
+    60% { /* "60%" quase no final da animação */
+        bottom: 180px;
+    }
+
+    70% { /* "60%" quase no final da animação */
+        bottom: 180px;
+    }
+
+    100% { /* "100%" quando tiver no fim da animação */
+        bottom: -55px;
+    }
+
+    /* imagine um carregamento de animação  */
+}
+
+@keyframes mover-nuvens {
+    from {  /* "from" onde começa a animação */
+        right: -550px;
+    }
+
+    to { /* "to" onde termina a animação */
+        right: 100%;
+    }
+}
+
+@keyframes mover-arvore {
+    from {  /* "from" onde começa a animação */
+        right: -550px;
+    }
+
+    to { /* "to" onde termina a animação */
+        right: 100%;
+    }
+}
