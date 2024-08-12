@@ -5,59 +5,113 @@
 }
 
 body {
-    background: rgb(14, 53, 21);
+    background: rgba(48, 48, 48, 0.998);
 }
 
 .game-board {
-    background-color: rgb(14, 53, 21);
     background-image: url(../img/cenario.jpg);
     background-repeat: no-repeat;
-    background-position-y: -150px;
+    border-bottom: 30px solid rgb(7, 68, 25);
     background-size: 100%; /* Ajuste a imagem para cobrir o elemento */
-    width: 100%;
+    width: 80%;
     height: 500px;
+    margin: 0 auto;
     position: relative; /* "position: relative;" para fazer o "absolute" respeitar e não sair da div */
     overflow: hidden;   /* "overflow: hidden;" tudo que sair da div some */
+    display: block;
 }
 
 .pipe {
     position: absolute;
-    bottom: -38px;
-    width: 140px;
-    animation:  pipe-animation 5s infinite linear; /*  "animation:  nomeAnimação, duração, loop?, e tipo de Animação;" 
-    para pegar animação que criou e usar */
+    bottom: 0px;
+    width: 70px;
+    right: -550px;
 }
 
 .player {
     position: absolute;
-    bottom: -55px;
-    width: 300px;
-}
-
-.jump {
-    animation: player-jump 500ms ease-in-out;
+    bottom: 0px;
+    width: 70px;
+    left: 200px;
 }
 
 .nuvens{
     position: absolute;
     width: 400px;
     bottom: 150px;
-    animation: mover-nuvens 30s linear infinite;
+    right: -550px;
 }
 
 .arvore {
     position: absolute;
     position: absolute;
-    bottom: -10px;
+    bottom: -40px;
     width: 200px;
-    animation: mover-arvore 10s linear infinite;
+    right: -550px;
 }
+
+.musica {
+    position: absolute;
+    cursor: pointer;
+}
+
+.gameOver {
+    color: rgb(162, 10, 10);
+    position: absolute; /* Posiciona o título absolutamente dentro do contêiner */
+    top: 50%; /* 50% da altura do contêiner */
+    left: 50%; /* 50% da largura do contêiner */
+    transform: translate(-50%, -50%); /* Move o título para o centro exato */
+    padding: 10px;
+    z-index: 2; /* Define um z-index maior para o título */
+    font-size: 80px;
+    margin: 0; /* Remove a margem padrão */
+    font-family: Arial, Helvetica, sans-serif;
+    visibility: hidden;
+}
+
+.enter {
+    color: rgb(255, 255, 255);
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    padding: 10px;
+    z-index: 2; 
+    font-size: 80px;
+    margin: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+    visibility: visible;
+}
+
+
+/* Estilos padrão (sem animação) */
+.nuvens, .pipe, .arvore {
+    animation: none; /* Inicialmente sem animação */
+  }
+  
+  /* Estilos com animação */
+  .nuvens.animated {
+    animation: mover-nuvens 30s linear infinite;
+  }
+  
+  .pipe.animated {
+    animation: pipe-animation 4s linear infinite;
+  }
+  
+  .arvore.animated {
+    animation: mover-arvore 15s linear infinite;
+  }
+  
+  .player.jump {
+    animation: player-jump 0.7s ease;
+  }
+  
 
 /* Animação */
 
 @keyframes pipe-animation {
     from {  /* "from" onde começa a animação */
-        right: -500px;
+        right: -550px;
     }
 
     to { /* "to" onde termina a animação */
@@ -67,7 +121,7 @@ body {
 
 @keyframes player-jump {
     0% {  /* "0%" quando tiver no inicio da animação */
-        bottom: -55px;
+        bottom: -20px;
     }
 
     40% { /* "40%" quase no meio da animação */
@@ -87,7 +141,7 @@ body {
     }
 
     100% { /* "100%" quando tiver no fim da animação */
-        bottom: -55px;
+        bottom: -20px;
     }
 
     /* imagine um carregamento de animação  */
